@@ -1,43 +1,64 @@
-# Scoop Bucket: SakiVI
+# Scoop-SakiStudio
 
-[![Winget](https://img.shields.io/badge/winget-SakiStudio.SakiVI-blue?logo=windows)](https://github.com/microsoft/winget-pkgs/tree/master/manifests/s/SakiStudio/SakiVI)
+> **Saki Studio's Scoop Bucket** — because sometimes the main repository isn't ready for what's coming.
 
-Custom [Scoop](https://scoop.sh) bucket for [Vi-SakiWin64](https://github.com/Saki-tw/Vi-SakiWin64).
+## Why This Bucket Exists
 
-## Why a personal bucket?
+This bucket exists because ScoopInstaller/Main rejected Vi for not being "famous enough" — despite all automated checks passing ✅.
 
-This bucket exists because [ScoopInstaller/Main rejected Vi](https://github.com/ScoopInstaller/Main/pull/7643)
-for not being "famous enough" — despite all automated checks passing ✅.
+Meanwhile, Microsoft Winget accepted it on first submission.
 
-Meanwhile, [Microsoft Winget accepted it](https://github.com/microsoft/winget-pkgs/pull/339486) on first submission.
+### Scoop maintainer's exact words / 原文
 
-<details>
-<summary>Scoop maintainer's exact words / 原文</summary>
-
-> I suggest maintaining this in your [personal bucket](https://github.com/ScoopInstaller/Scoop/wiki/Buckets#creating-your-own-bucket) instead. Please feel free to reopen this PR once it fully meets the criteria.
+> I suggest maintaining this in your personal bucket instead. Please feel free to reopen this PR once it fully meets the criteria.
 >
-> — [z-Fng](https://github.com/z-Fng), ScoopInstaller/Main [#7643](https://github.com/ScoopInstaller/Main/pull/7643)
+> — z-Fng, ScoopInstaller/Main #7643
 
-</details>
+---
 
-## Install — Scoop
+## Available Packages
+
+| Package | Description | Version |
+|---------|-------------|---------|
+| `saki-vi` | Vi — the original Vi, not Vim. Trilingual (繁中 / 日本語 / EN) | 1.0.0 |
+| `sakiagentssh-daemon` | SakiAgentSSH Daemon — Agent-native gRPC execution daemon | 0.2.0 |
+| `sakiagentssh-client` | SakiAgentSSH Client — Agent-native gRPC execution CLI | 0.2.0 |
+| `sakiclip` | SakiClip — Cross-machine clipboard sync | *coming soon* |
+
+## Usage
 
 ```powershell
-scoop bucket add sakivi https://github.com/Saki-tw/scoop-sakivi
+# Add bucket
+scoop bucket add sakistudio https://github.com/Saki-tw/Scoop-SakiStudio
+
+# Install
 scoop install saki-vi
-vi file.txt   # ready to go
+scoop install sakiagentssh-daemon
+scoop install sakiagentssh-client
+
+# Update
+scoop update *
 ```
 
-## Install — Winget（Recommended）
+## Bucket Structure
+
+```
+Scoop-SakiStudio/
+└── bucket/
+    ├── saki-vi.json
+    ├── sakiagentssh-daemon.json
+    └── sakiagentssh-client.json
+```
+
+## Migration from scoop-sakivi
 
 ```powershell
-winget install SakiStudio.SakiVI
-vi file.txt
+scoop bucket rm sakivi
+scoop bucket add sakistudio https://github.com/Saki-tw/Scoop-SakiStudio
 ```
 
-## About
+GitHub auto-redirects from the old URL, but updating your local bucket is recommended.
 
-Bill Joy's vi, recompiled for Windows. 178KB. That's it.
+---
 
-- **Author**: 咲ちゃん（Saki）/ Saki Studio — [saki-studio.com.tw](http://saki-studio.com.tw)
-- **License**: GPL-2.0-only
+**Saki Studio** · [saki-studio.com.tw](http://saki-studio.com.tw) · [GitHub](https://github.com/saki-tw)
